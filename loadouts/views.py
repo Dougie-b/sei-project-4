@@ -16,14 +16,17 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 class LoadoutListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
-    def get(self):
-        user = self.request.user
-        loadouts = Loadout.objects.filter(owner=user, many=True)
-        print(loadouts)
-        return loadouts
+    def get(self, request):
+        user = request.user
+        loadouts = Loadout.objects.filter(owner=user)
+        serialized_loadouts = PopulatedLoadoutSerializer(
+            data=loadouts, many=True)
+        serialized_loadouts.is_valid()
+        return Response(serialized_loadouts.data)
 
     def post(self, request):
-        serialized_data = LoadoutSerializer(data=request.data)
+        serialized_data = PopulatedLoadoutSerializer(data=request.data)
+        print(serialized_data)
 
         try:
             serialized_data.is_valid()
@@ -64,6 +67,8 @@ class LoadoutDetailView(APIView):
         loadout_to_update = self.get_loadout(pk)
         serialized_loadout = LoadoutSerializer(
             loadout_to_update, data=request.data)
+        print(loadout_to_update)
+        print(serialized_loadout)
         try:
             serialized_loadout.is_valid()
             serialized_loadout.save()
