@@ -14,7 +14,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
 class LoadoutListView(APIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
+    # permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get(self, request):
         user = request.user
@@ -44,7 +44,7 @@ class LoadoutListView(APIView):
 
 
 class LoadoutDetailView(APIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
+    # permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get_loadout(self, pk):
         try:
