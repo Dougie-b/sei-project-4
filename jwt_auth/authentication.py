@@ -24,7 +24,7 @@ class JWTAuthentication(BasicAuthentication):
             raise PermissionDenied(
                 detail="mmm, not so sure about the format of that there token friend")
 
-        token = header.replace('Bearer', '')
+        token = header.replace('Bearer ', '')
 
         try:
             payload = jwt.decode(

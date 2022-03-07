@@ -1,4 +1,3 @@
-from tkinter import CASCADE
 from django.db import models
 from django.forms import CharField
 
@@ -9,8 +8,12 @@ class Gun(models.Model):
     name = models.CharField(max_length=30)
     type = models.CharField(max_length=20)
     image = models.CharField(max_length=500)
-    attachmentsID = models.ForeignKey(
+    attachmentsID = models.ManyToManyField(
         "attachments.Attachment",
         related_name='guns',
-        on_delete=models.CASCADE
+        default=None,
+        blank=True
     )
+
+    def __str__(self):
+        return f"{self.name}"

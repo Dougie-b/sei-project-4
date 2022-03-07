@@ -7,6 +7,9 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
+    loadouts = serializers.StringRelatedField(
+        many=True, read_only=True)
+
     password = serializers.CharField(write_only=True)
     password_confirmation = serializers.CharField(write_only=True)
 
@@ -22,4 +25,5 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ("gamertag", "email", "platform",
+                  "password_confirmation", "password", "loadouts")
