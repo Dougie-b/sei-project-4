@@ -16,7 +16,7 @@ const Register = () => {
         email: '',
         platform: '',
         password: '',
-        passwordConfirmation: '',
+        password_confirmation: '',
     })
 
     const [formErrors, setFormErrors] = useState({
@@ -24,7 +24,7 @@ const Register = () => {
         email: '',
         platform: '',
         password: '',
-        passwordConfirmation: '',
+        password_confirmation: '',
     })
 
     const handleChange = (e) => {
@@ -36,7 +36,6 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            console.log('formdata', formData)
             await axios.post('/api/auth/register/', formData)
             navigate('/login')
         } catch (err) {
@@ -103,18 +102,18 @@ const Register = () => {
                     </Form.Group>
                     {/* Password Confirmation */}
                     <Form.Group className="mb-2">
-                        <Form.Label htmlFor="passwordConfirmation">
+                        <Form.Label htmlFor="password_confirmation">
                             Confirm Password
                         </Form.Label>
                         <Form.Control
                             onChange={handleChange}
                             type="password"
-                            name="passwordConfirmation"
+                            name="password_confirmation"
                             placeholder="Confirm Password"
-                            defaultValue={formData.passwordConfirmation}
+                            defaultValue={formData.password_confirmation}
                         />
                         {formErrors.passwordConfirmation && (
-                            <Form.Text>{formErrors.passwordConfirmation}</Form.Text>
+                            <Form.Text>{formErrors.password_confirmation}</Form.Text>
                         )}
                     </Form.Group>
                     {/* Submit */}
