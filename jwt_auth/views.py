@@ -33,7 +33,7 @@ class LoginView(APIView):
     def post(self, request):
         try:
             user_to_login = User.objects.get(
-                gamertag=request.data.get('gamertag'))
+                username=request.data.get('username'))
         except User.DoesNotExist:
             return PermissionDenied(detail="Woah woah, who are you?")
 
@@ -49,5 +49,5 @@ class LoginView(APIView):
 
         return Response({
             'token': token,
-            'message': f"Oh hi {user_to_login.gamertag}"
+            'message': f"Oh hi {user_to_login.username}"
         }, status.HTTP_202_ACCEPTED)

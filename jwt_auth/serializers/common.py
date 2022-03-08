@@ -25,5 +25,5 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("gamertag", "email", "platform",
+        fields = ("username", "email", "platform",
                   "password_confirmation", "password", "loadouts")

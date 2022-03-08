@@ -12,7 +12,7 @@ const Register = () => {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        gamertag: '',
+        username: '',
         email: '',
         platform: '',
         password: '',
@@ -20,7 +20,7 @@ const Register = () => {
     })
 
     const [formErrors, setFormErrors] = useState({
-        gamertag: '',
+        username: '',
         email: '',
         platform: '',
         password: '',
@@ -49,18 +49,18 @@ const Register = () => {
             <Container>
                 <Form onSubmit={handleSubmit} className="mt-4">
                     <h2>Register</h2>
-                    {/* Gamertag */}
+                    {/* Username */}
                     <Form.Group className="mb-2">
-                        <Form.Label htmlFor="gamertag">Gamertag</Form.Label>
+                        <Form.Label htmlFor="username">Username</Form.Label>
                         <Form.Control
                             onChange={handleChange}
                             type="text"
-                            name="gamertag"
-                            placeholder="gamertag"
-                            defaultValue={formData.gamertag}
+                            name="username"
+                            placeholder="username"
+                            defaultValue={formData.username}
                         />
-                        {formErrors.gamertag && (
-                            <Form.Text>{formErrors.gamertag}</Form.Text>
+                        {formErrors.username && (
+                            <Form.Text>{formErrors.username}</Form.Text>
                         )}
                     </Form.Group>
                     {/* Email */}
