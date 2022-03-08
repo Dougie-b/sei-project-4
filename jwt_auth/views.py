@@ -19,6 +19,7 @@ class RegisterView(APIView):
 
     def post(self, request):
         user_to_create = UserSerializer(data=request.data)
+        print(user_to_create)
         try:
             user_to_create.is_valid()
             user_to_create.save()
