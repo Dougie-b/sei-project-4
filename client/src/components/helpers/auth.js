@@ -18,3 +18,13 @@ export const userIsAuthenticated = () => {
     const currentTime = Math.round(Date.now() / 1000)
     return currentTime < payload.exp
 }
+
+export const removeToken = () => {
+    window.localStorage.removeItem('totallyunIqueTokEn')
+}
+
+export const isOwner = (userId) => {
+    const payload = getPayload()
+    if (!payload) return false
+    return userId === payload.sub
+}

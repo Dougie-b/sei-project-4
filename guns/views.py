@@ -17,3 +17,16 @@ class GunListView(APIView):
         serialized_guns = GunSerializer(
             guns, many=True)
         return Response(serialized_guns.data, status=status.HTTP_200_OK)
+
+
+class GunDetailView(APIView):
+    def get_gun(self, pk):
+        try:
+            return Gun.objects.get(pk=pk)
+        except Gun.DoesNotExist:
+            raise NotFound(detail="Gun not found")
+
+    def get(self, _request, pk):
+        gun = self.get_gun(pk)
+        serialized_gun = GunSerializer(gun)
+        return Response(serialized_gun.data, status=status.HTTP_200_OK)
