@@ -6,7 +6,7 @@ const AttachmentSelect = () => {
     const navigate = useNavigate()
     const { gunId } = useParams()
 
-    const [gun, setGun] = useState([])
+    const [gun, setGun] = useState('')
     const [hasError, setHasError] = useState({ error: false, message: '' })
 
     useEffect(() => {
@@ -20,10 +20,15 @@ const AttachmentSelect = () => {
             }
         }
         getSingleGun()
-    }, [gunId])
+    }, [])
 
     return (
-        <h1></h1>
+        <div id='attachmentselect-wrapper'>
+            <div id='attachment-gun-highlight'>
+                <h1>{gun.name} - {gun.type}</h1>
+                <img src={gun.image} alt={gun.name}></img>
+            </div>
+        </div>
     )
 
 

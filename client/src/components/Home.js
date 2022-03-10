@@ -26,10 +26,12 @@ export const Home = () => {
         <div id="home-wrapper">
             <div id="welcome">
                 <h1>Welcome to Warzone gun builder thingy! </h1>
+                <div id="home-text">Do you ever get tired of min-maxing builds and trying to keep up with the meta at all times?<br />Why not try an incredible (awful) generated build and add more to gloat about when you win (you probably won't)<br /></div>
+                <Link to="/randomiser">Generate a random gun!</Link>
             </div>
             <div id="random-gun">
                 <h3>Why not try this one?🤔</h3>
-                <Link to="/">{randomGun.image}</Link>
+                <Link to={`/attachmentselect/${randomGun.id}`}>{randomGun.image}</Link>
             </div>
         </div>
     )
