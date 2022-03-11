@@ -1,0 +1,55 @@
+#navbar{
+    display: flex;
+    align-items: center;
+    background-color: rgb(4, 4, 99);
+    height: 40px;
+    #brand{
+        background-color: rgb(4, 4, 99);
+        text-decoration: none;
+    }
+    #wbuilder{
+        background-color: rgb(4, 4, 99);
+        text-decoration: none;
+    }
+}
+.button{
+    background-color: rgb(4, 4, 99);
+}
+
+#profile{
+    background-color: rgb(4, 4, 99);
+    text-decoration: none;
+}
+
+#first{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    background-color: rgb(4, 4, 99);
+}
+
+#right{
+    display: flex;
+
+}
+
+#double{
+   display: flex;
+   justify-content: space-between;
+   width: 50px;
+    #register{
+        margin-right: 50px;
+    }
+
+}
+#logout{
+    cursor: pointer;
+}
+
+#register{
+    text-decoration: none;
+}
+
+#login{
+    text-decoration: none;
+}

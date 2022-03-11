@@ -7,8 +7,6 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
-    loadouts = serializers.StringRelatedField(
-        many=True, read_only=True)
 
     password = serializers.CharField(write_only=True)
     password_confirmation = serializers.CharField(write_only=True)

@@ -4,6 +4,9 @@ from django.conf import settings
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import NotFound
+
+from jwt_auth.serializers.populated import PopulatedUserSerializer
 
 from .serializers.common import UserSerializer
 from datetime import datetime, timedelta
@@ -51,3 +54,16 @@ class LoginView(APIView):
             'token': token,
             'message': f"Oh hi {user_to_login.username}"
         }, status.HTTP_202_ACCEPTED)
+
+
+class UserDetailView(APIView):
+    def get_user(self, pk):
+        try:
+            return User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise NotFound(detail="User not found")
+
+    def get(self, _request, pk):
+        user = self.get_user(pk)
+        serialized_user = PopulatedUserSerializer(user)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)

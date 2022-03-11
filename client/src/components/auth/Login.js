@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        gamertag: '',
+        username: '',
         password: '',
     })
 
@@ -34,7 +34,7 @@ const Login = () => {
             const { data } = await axios.post('/api/auth/login/', formData)
             console.log('token', data.token)
             setTokenToLocalStorage(data.token)
-            navigate('/gunlist')
+            navigate('/')
         } catch (err) {
             console.log('catch error', err.response)
             setFormError(err.response.data.message)
@@ -48,8 +48,8 @@ const Login = () => {
                 <Form onSubmit={handleSubmit} className='mt-4'>
                     <h2>Login</h2>
                     <Form.Group className='mb-2'>
-                        <Form.Label htmlFor='gamertag'>Gamertag</Form.Label>
-                        <Form.Control onChange={handleChange} type="gamertag" name="gamertag" placeholder='Gamertag' defaultValue={formData.gamertag} />
+                        <Form.Label htmlFor='username'>Username</Form.Label>
+                        <Form.Control onChange={handleChange} type="text" name="username" placeholder='Username' defaultValue={formData.username} />
                     </Form.Group>
                     <Form.Group className='mb-2'>
                         <Form.Label htmlFor="password">Password</Form.Label>
@@ -57,7 +57,7 @@ const Login = () => {
                     </Form.Group>
                     {formError && <Form.Text>{formError}</Form.Text>}
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Keep me logged in" />
+                        <Form.Check type="checkbox" label="Remember me!" />
                     </Form.Group>
                     <Form.Group className='mt-4 text-left'>
                         <Button variant="success" type="submit">Log in</Button>

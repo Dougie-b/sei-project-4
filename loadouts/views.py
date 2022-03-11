@@ -23,24 +23,25 @@ class LoadoutListView(APIView):
             data=loadouts, many=True)
         serialized_loadouts.is_valid()
         return Response(serialized_loadouts.data)
+        
 
     def post(self, request):
-        serialized_data = PopulatedLoadoutSerializer(data=request.data)
-        print(serialized_data)
-
+        request.data["owner"] = request.user.id
+        serialized_loadout = LoadoutSerializer(data=request.data)
+        print(serialized_loadout)
         try:
-            serialized_data.is_valid()
-            serialized_data.save()
-            return Response(serialized_data.data, status=status.HTTP_201_CREATED)
-
-        except IntegrityError as error:
-            return Response({"detail": str(error)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
-        except AssertionError as error:
-            return Response({"detail": str(error)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
+            serialized_loadout.is_valid()
+            serialized_loadout.save()
+            return Response(serialized_loadout.data, status=status.HTTP_201_CREATED)
+        except AssertionError as e:
+            print(str(e))
+            return Response({
+                "detail": str(e)
+            }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
         except:
-            return Response({"detail": "Unprocessable Entity"}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+            return Response({
+                "detail": "Unprocessable Entity"
+            }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
 class LoadoutDetailView(APIView):

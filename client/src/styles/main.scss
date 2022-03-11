@@ -1,3 +1,18 @@
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Smooch+Sans:wght@400;600&display=swap');
+
+@import './components/home';
+@import './components/sitenavbar';
+@import './components/gunselect';
+@import './components/userprofile';
+
+
+
 * {
   box-sizing: border-box;
+  color: white;
+  background-color: black;
+  font-family: 'Rubik', 'sans-serif';
+  margin: 0 auto;
 }
