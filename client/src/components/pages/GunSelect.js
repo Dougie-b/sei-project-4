@@ -32,7 +32,7 @@ const GunSelect = () => {
         <div id="gunselect-wrapper">
             {guns ?
                 <div onChange={handleChange}>
-                    <h2>Weapon Select</h2>
+                    <h1>Weapon Select</h1>
                     <select id='gun-select' className="type=select">
                         <option value="" selected >All</option>
                         <option value="AR">Assault Rifle</option>

@@ -47,7 +47,7 @@ const Login = () => {
             <Container>
                 <Form onSubmit={handleSubmit} className='mt-4'>
                     <h2>Login</h2>
-                    <Form.Group className='mb-2'>
+                    <Form.Group id='username' className='mb-2'>
                         <Form.Label htmlFor='username'>Username</Form.Label>
                         <Form.Control onChange={handleChange} type="text" name="username" placeholder='Username' defaultValue={formData.username} />
                     </Form.Group>
@@ -57,10 +57,10 @@ const Login = () => {
                     </Form.Group>
                     {formError && <Form.Text>{formError}</Form.Text>}
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Remember me!" />
+                        <Form.Check id='remember' type="checkbox" label="Remember me!" />
                     </Form.Group>
                     <Form.Group className='mt-4 text-left'>
-                        <Button variant="success" type="submit">Log in</Button>
+                        <Button id='button' variant="success" type="submit">Log in</Button>
                     </Form.Group>
                 </Form>
             </Container>

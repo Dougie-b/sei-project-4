@@ -1,0 +1,40 @@
+.form-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+h2{
+    margin-bottom: 10px;
+}
+
+#username{
+    margin-bottom: 15px;
+}
+
+#button{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    font-size:15px;
+    font-family:Arial;
+    width:100px;
+    height:40px;
+    border-width:1px;
+    color:#ffffff;
+    background-color: rgb(4, 4, 99);
+    font-weight:bold;
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    box-shadow:inset 0px 1px 0px 0px rgb(28, 28, 233);
+    background:linear-gradient(#593dfa, rgb(4, 4, 99));
+}
+
+#remember{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

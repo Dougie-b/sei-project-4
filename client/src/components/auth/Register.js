@@ -44,13 +44,13 @@ const Register = () => {
     }
 
     return (
-        <section className="form-page">
+        <section id="form-page">
             <Container>
                 <Form onSubmit={handleSubmit} className="mt-4">
                     <h2>Register</h2>
                     {/* Username */}
                     <Form.Group className="mb-2">
-                        <Form.Label htmlFor="username">Username</Form.Label>
+                        <Form.Label className='please' htmlFor="username">Username</Form.Label>
                         <Form.Control
                             onChange={handleChange}
                             type="text"
@@ -64,7 +64,7 @@ const Register = () => {
                     </Form.Group>
                     {/* Email */}
                     <Form.Group className="mb-2">
-                        <Form.Label htmlFor="email">Email Address</Form.Label>
+                        <Form.Label className='please' htmlFor="email">Email Address</Form.Label>
                         <Form.Control
                             onChange={handleChange}
                             type="email"
@@ -76,7 +76,7 @@ const Register = () => {
                     </Form.Group>
                     {/* Platform */}
                     <Form.Group className="mb-2">
-                        <Form.Label htmlFor="platform">Platform</Form.Label>
+                        <Form.Label className='please' htmlFor="platform">Platform</Form.Label>
                         <Form.Control
                             onChange={handleChange}
                             type="text"
@@ -88,7 +88,7 @@ const Register = () => {
                     </Form.Group>
                     {/* Password */}
                     <Form.Group className="mb-2">
-                        <Form.Label htmlFor="password">Password</Form.Label>
+                        <Form.Label className='please' htmlFor="password">Password</Form.Label>
                         <Form.Control
                             onChange={handleChange}
                             type="password"
@@ -102,7 +102,7 @@ const Register = () => {
                     </Form.Group>
                     {/* Password Confirmation */}
                     <Form.Group className="mb-2">
-                        <Form.Label htmlFor="password_confirmation">
+                        <Form.Label className='please' htmlFor="password_confirmation">
                             Confirm Password
                         </Form.Label>
                         <Form.Control
@@ -117,8 +117,8 @@ const Register = () => {
                         )}
                     </Form.Group>
                     {/* Submit */}
-                    <Form.Group className="text-center mt-4">
-                        <Button variant="success" type="submit">
+                    <Form.Group className="text-center mt-3">
+                        <Button id='button' variant="success" type="submit">
                             Submit
                         </Button>
                     </Form.Group>
